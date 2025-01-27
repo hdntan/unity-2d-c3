@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager instance;
-    [SerializeField] public Vector3 mouseWorldPos;
+    private static InputManager instance;
+    public static InputManager Instance { get => instance; }
+
+    [SerializeField] protected Vector3 mouseWorldPos;
+    public Vector3 MousePosition { get => mouseWorldPos; }
     private void Awake()
     {
+        if (InputManager.instance != null) Debug.LogError("Only 1 InputManager allow to exits");
         InputManager.instance = this;
     }
 

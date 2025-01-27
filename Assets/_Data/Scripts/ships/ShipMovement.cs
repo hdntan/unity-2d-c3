@@ -9,7 +9,7 @@ public class ShipMovement : MonoBehaviour
 
     void FixedUpdate()
     {    
-        this.worldPostion = InputManager.instance.mouseWorldPos;
+        this.worldPostion = InputManager.Instance.MousePosition;
         this.worldPostion.z = 0;
         Vector3 newPos = Vector3.Lerp(transform.parent.position, this.worldPostion, this.moveSpeed * Time.deltaTime);
         transform.parent.position = newPos;
