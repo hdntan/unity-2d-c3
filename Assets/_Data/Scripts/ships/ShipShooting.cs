@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipShooting : MonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
-    [SerializeField] protected Transform bullet;
+    [SerializeField] protected Transform bulletPrefab;
 
 
     private void FixedUpdate()
@@ -14,9 +14,11 @@ public class ShipShooting : MonoBehaviour
     }
 
     protected virtual void Shooting()
-    {
+    { 
         if (!this.isShooting) return;
-        Instantiate(this.bullet);
+        Vector3 spawnPos = transform.parent.position;
+        Quaternion roatation = transform.parent.rotation;
+        Instantiate(this.bulletPrefab, spawnPos,roatation);
         Debug.Log("Shooting");
     }
 }
