@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
     public static InputManager Instance { get => instance; }
-
+     
     [SerializeField] protected Vector3 mouseWorldPos;
     public Vector3 MousePosition { get => mouseWorldPos; }
     private void Awake()
