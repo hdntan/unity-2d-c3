@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Spawner : MainMonoBehaviour
+public abstract class Spawner : MainMonoBehaviour
 {
-    public static Spawner instance;
+  
     [SerializeField] protected List<Transform> prefabs;
-
-
-    protected override void Awake()
-    {
-        base.Awake();
-        Spawner.instance = this;    
-
-    }
 
     protected override void LoadComponents()
     {   
@@ -43,11 +35,27 @@ public class Spawner : MainMonoBehaviour
         }
     }
 
-    public virtual Transform Spawn(Vector3 spawnPos, Quaternion roatation)
+    public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion roatation)
     {
-        Transform prefab = this.prefabs[0];
+        Transform prefab = this.GetPrefabByName(prefabName);
+        
+        if(prefab == null)
+        {
+            Debug.LogWarning("Prefab not found: " + prefabName);
+            return null;
+        }   
+
         Transform newPrefab = Instantiate(prefab, spawnPos, roatation);
         return newPrefab;
+    }
+
+    public virtual Transform GetPrefabByName(string prefabName)
+    {
+        foreach (Transform prefab in this.prefabs)
+        {
+            if(prefab.name == prefabName) return prefab;
+        }
+        return null;
     }
 
 }
