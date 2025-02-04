@@ -151,8 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505b02420839a0a46b3a189a09b5f8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1507134530}
+  prefabs: []
 --- !u!4 &318319554
 Transform:
   m_ObjectHideFlags: 0
@@ -480,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1507134530
 Transform:
   m_ObjectHideFlags: 0
@@ -543,9 +542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShooting: 0
-  shootDeley: 1
+  shootDeley: 0.5
   shootTimer: 0
-  bulletPrefab: {fileID: 1507134530}
 --- !u!1 &171346160860383874
 GameObject:
   m_ObjectHideFlags: 0
