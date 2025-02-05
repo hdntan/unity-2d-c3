@@ -12,6 +12,7 @@ public class MainMonoBehaviour : MonoBehaviour
     protected virtual void Reset()
     {
         this.LoadComponents();
+        this.ResetValue();
     }
 
     protected virtual void Start()
@@ -22,5 +23,10 @@ public class MainMonoBehaviour : MonoBehaviour
     protected virtual void LoadComponents()
     {
    
+    }
+
+    protected virtual void ResetValue()
+    {
+
     }
 }
