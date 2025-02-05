@@ -11,7 +11,7 @@ public class DespawnByDistance : Despawn
 
 
     protected override void LoadComponents()
-    {
+    { 
         base.LoadComponents();
         this.LoadMainCam();
     }
