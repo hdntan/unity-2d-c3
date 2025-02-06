@@ -596,6 +596,8 @@ GameObject:
   m_Component:
   - component: {fileID: 840529727}
   - component: {fileID: 840529728}
+  - component: {fileID: 840529729}
+  - component: {fileID: 840529730}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: Untagged
@@ -636,6 +638,32 @@ MonoBehaviour:
   - {fileID: 52141372}
   poolObjs: []
   holder: {fileID: 1668038678}
+--- !u!114 &840529729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840529725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cf19968108fba45baffd601c0625e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrl: {fileID: 840529730}
+--- !u!114 &840529730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840529725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184572468c8e1954688777ca16ebd5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkSpawner: {fileID: 840529728}
 --- !u!1 &1038842289
 GameObject:
   m_ObjectHideFlags: 0
