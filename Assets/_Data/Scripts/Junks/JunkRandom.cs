@@ -26,7 +26,8 @@ public class JunkRandom : MainMonoBehaviour
 
     protected virtual void JunkSpawning()
     {
-        Vector3 pos = transform.position;
+        Transform ranPoint = this.ctrl.JunkSpawnPoints.GetRandomPoint();
+        Vector3 pos = ranPoint.position;
         Quaternion rot = transform.rotation;
         Transform newObj = this.ctrl.JunkSpawner.Spawn(JunkSpawner.meteoriteOne, pos, rot);
         newObj.gameObject.SetActive(true);
