@@ -17,16 +17,21 @@ public class MainMonoBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        // override 
     }
 
     protected virtual void LoadComponents()
     {
-   
+        // override
     }
 
     protected virtual void ResetValue()
     {
+        // override
+    }
 
+    protected virtual void OnEnable()
+    {
+        // override
     }
 }
