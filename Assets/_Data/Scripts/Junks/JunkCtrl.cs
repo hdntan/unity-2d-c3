@@ -4,33 +4,19 @@ using UnityEngine;
 
 public class JunkCtrl : MainMonoBehaviour
 {
-    [SerializeField] protected JunkSpawner junkSpawner;
-    public JunkSpawner JunkSpawner { get => junkSpawner; }
-
-    [SerializeField] protected JunkSpawnPoints junkSpawnPoints;
-    public JunkSpawnPoints JunkSpawnPoints { get => junkSpawnPoints; }
-
+    [SerializeField] protected Transform model;
+    public Transform Model { get => model; }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadJunkSpawner(); 
-        this.LoadJunkSpawnPoint();
+        this.LoadModel();   
     }
 
-    protected virtual void LoadJunkSpawner()
+    protected virtual void LoadModel()
     {
-        if (this.junkSpawner != null) return;
-        this.junkSpawner = transform.GetComponent<JunkSpawner>();
-        Debug.Log(transform.name + " :LoadJunkSpawner", gameObject);
+        if (this.model != null) return;
+        this.model = transform.Find("Model");
+        Debug.Log(transform.name + " :LoadModel", gameObject);
     }
-
-
-    protected virtual void LoadJunkSpawnPoint()
-    {
-        if (this.junkSpawnPoints != null) return;
-        this.junkSpawnPoints = Transform.FindObjectOfType<JunkSpawnPoints>();
-        Debug.Log(transform.name + " :LoadJunkSpawner", gameObject);
-    }
-
 }

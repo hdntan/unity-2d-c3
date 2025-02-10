@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class JunkRandom : MainMonoBehaviour
 {
-    [SerializeField] protected JunkCtrl ctrl;
+    [SerializeField] protected JunkSpawnerCtrl ctrl;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadJunkCtrl();
+        this.LoadJunkSpawnerCtrl();
     }
 
-    protected virtual void LoadJunkCtrl()
+    protected virtual void LoadJunkSpawnerCtrl()
     {
         if (this.ctrl != null) return;
-        this.ctrl = transform.GetComponent<JunkCtrl>();
-        Debug.Log(transform.name + " :LoadJunkCtrl", gameObject);
+        this.ctrl = transform.GetComponent<JunkSpawnerCtrl>();
+        Debug.Log(transform.name + " :LoadJunkSpawnerCtrl", gameObject);
     }
 
     protected override void Start()
