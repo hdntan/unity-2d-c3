@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageSender : MonoBehaviour
+public class DamageSender : MainMonoBehaviour
 {
-    [SerializeField] protected float damage = 1f;
+    [SerializeField] protected int damage = 1;
 
     public virtual void Send(Transform obj)
     {
@@ -16,11 +16,7 @@ public class DamageSender : MonoBehaviour
     public virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(this.damage);
-        this.DestroyObject();
     }
 
-    protected virtual void DestroyObject()
-    {
-        Destroy(transform.parent.gameObject);
-    }
+  
 }
