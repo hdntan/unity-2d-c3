@@ -61,6 +61,13 @@ public abstract class Spawner : MainMonoBehaviour
             return null;
         }   
 
+        
+        return this.Spawn(prefab,spawnPos,roatation);
+    }
+
+    public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion roatation)
+    {
+       
         Transform newPrefab = this.GetObjFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, roatation);
         newPrefab.parent = this.holder;
@@ -68,7 +75,7 @@ public abstract class Spawner : MainMonoBehaviour
         return newPrefab;
     }
 
-     protected virtual Transform GetObjFromPool(Transform prefab)
+    protected virtual Transform GetObjFromPool(Transform prefab)
     {
         foreach(Transform obj in this.poolObjs)
         {
@@ -98,6 +105,12 @@ public abstract class Spawner : MainMonoBehaviour
             if(prefab.name == prefabName) return prefab;
         }
         return null;
+    }
+
+    public virtual Transform GetPrefabRandom()
+    {
+        int ran = Random.Range(0, this.prefabs.Count);
+        return this.prefabs[ran];
     }
 
 }
