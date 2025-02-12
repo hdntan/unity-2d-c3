@@ -11,6 +11,10 @@ public abstract class Spawner : MainMonoBehaviour
     [SerializeField] protected Transform holder;
 
 
+    [SerializeField] protected int spawnCount = 0;
+    public int SpawnCount { get => spawnCount; }
+
+
 
     protected override void LoadComponents()
     {   
@@ -60,6 +64,7 @@ public abstract class Spawner : MainMonoBehaviour
         Transform newPrefab = this.GetObjFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, roatation);
         newPrefab.parent = this.holder;
+        this.spawnCount++;
         return newPrefab;
     }
 
@@ -83,6 +88,7 @@ public abstract class Spawner : MainMonoBehaviour
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+        this.spawnCount--;
     }
 
     public virtual Transform GetPrefabByName(string prefabName)

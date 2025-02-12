@@ -480,6 +480,7 @@ MonoBehaviour:
   - {fileID: 1507134530}
   poolObjs: []
   holder: {fileID: 440093882}
+  spawnCount: 0
 --- !u!1 &440093881
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &448258320
 Transform:
   m_ObjectHideFlags: 0
@@ -809,6 +810,7 @@ MonoBehaviour:
   hp: 3
   hpMax: 3
   isDead: 0
+  ctrl: {fileID: 0}
 --- !u!135 &786392280
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -882,6 +884,7 @@ MonoBehaviour:
   - {fileID: 52141372}
   poolObjs: []
   holder: {fileID: 1668038678}
+  spawnCount: 0
 --- !u!114 &840529729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrl: {fileID: 840529730}
+  randomDelay: 1
+  randomTimer: 0
+  randomLimit: 9
 --- !u!114 &840529730
 MonoBehaviour:
   m_ObjectHideFlags: 0
