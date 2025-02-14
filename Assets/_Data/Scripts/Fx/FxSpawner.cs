@@ -8,6 +8,8 @@ public class FxSpawner : Spawner
     public static FxSpawner Instance => instance; 
 
     public static string smoke1 = "Smoke_1";
+    public static string impact1 = "Impact_1";
+
 
 
 
