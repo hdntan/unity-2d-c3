@@ -17,6 +17,12 @@ public class DamageReceiver : MainMonoBehaviour
         this.Reborn();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.Reborn();
+    }
+
     protected override void LoadComponents() 
     {
         base.LoadComponents();
@@ -35,6 +41,7 @@ public class DamageReceiver : MainMonoBehaviour
     public virtual void Reborn()
     {
         this.hp = this.hpMax;
+        this.isDead = false;
     }
 
     public virtual void Add(int add)

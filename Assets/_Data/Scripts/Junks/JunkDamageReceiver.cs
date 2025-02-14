@@ -24,4 +24,11 @@ public class JunkDamageReceiver : DamageReceiver
         base.OnDead();
         this.ctrl.JunkDespawn.DespawnObject();  
     }
+
+    public override void Reborn()
+    {
+        this.hpMax = this.ctrl.JunkSO.hpMax;
+        base.Reborn();
+    }
 }
+
