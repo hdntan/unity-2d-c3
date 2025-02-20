@@ -5,10 +5,13 @@ using UnityEngine;
 public class BulletCtrl : MainMonoBehaviour
 {
     [SerializeField] protected DamageSender damageSender;
-    public DamageSender DamageSender { get { return damageSender; } }
+    public DamageSender DamageSender => damageSender;
 
     [SerializeField] protected BulletDespawn bulletDespawn;
-    public BulletDespawn BulletDespawn { get { return bulletDespawn; } }
+    public BulletDespawn BulletDespawn => bulletDespawn;
+
+    [SerializeField] protected Transform shooter;
+    public Transform Shooter => shooter;
 
     protected override void LoadComponents()
     {
@@ -30,5 +33,10 @@ public class BulletCtrl : MainMonoBehaviour
         this.bulletDespawn = transform.GetComponentInChildren<BulletDespawn>();
         Debug.Log(transform.name + " :LoadBulletDespawn", gameObject);
 
+    }
+
+    public virtual void SetShooter(Transform shooter)
+    {
+        this.shooter = shooter;
     }
 }

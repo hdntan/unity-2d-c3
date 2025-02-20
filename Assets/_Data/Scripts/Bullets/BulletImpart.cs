@@ -42,11 +42,14 @@ public class BulletImpart : BulletAbstract
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.transform.name);
+        Debug.Log(transform.parent.name);
+        if (other.transform.parent == this.ctrl.Shooter) return;
         this.ctrl.DamageSender.Send(other.transform);
-        this.CreateImpactFx();
+        this.CreateImpactFx(other);
     }
 
-    protected virtual void CreateImpactFx()
+    protected virtual void CreateImpactFx(Collider other)
     {
         string fxName = this.GetImpactName();
         Vector3 posHit = transform.position;
