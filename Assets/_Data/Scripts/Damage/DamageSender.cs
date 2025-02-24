@@ -16,7 +16,22 @@ public class DamageSender : MainMonoBehaviour
     public virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(this.damage);
+        this.CreateImpactFx();
     }
 
-  
+
+    protected virtual void CreateImpactFx()
+    {
+        string fxName = this.GetImpactName();
+        Vector3 posHit = transform.position;
+        Quaternion rotaHit = transform.rotation;
+        Transform newImpactFx = FxSpawner.Instance.Spawn(fxName, posHit, rotaHit);
+        newImpactFx.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetImpactName()
+    {
+        return FxSpawner.impact1;
+    }
+
 }

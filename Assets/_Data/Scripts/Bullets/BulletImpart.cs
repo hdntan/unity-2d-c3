@@ -42,24 +42,23 @@ public class BulletImpart : BulletAbstract
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.name);
-        Debug.Log(transform.parent.name);
+      
         if (other.transform.parent == this.ctrl.Shooter) return;
         this.ctrl.DamageSender.Send(other.transform);
-        this.CreateImpactFx(other);
+       // this.CreateImpactFx(other);
     }
 
-    protected virtual void CreateImpactFx(Collider other)
-    {
-        string fxName = this.GetImpactName();
-        Vector3 posHit = transform.position;
-        Quaternion rotaHit = transform.rotation;
-        Transform newImpactFx = FxSpawner.Instance.Spawn(fxName, posHit, rotaHit);
-        newImpactFx.gameObject.SetActive(true);
-    }
+    //protected virtual void CreateImpactFx(Collider other)
+    //{
+    //    string fxName = this.GetImpactName();
+    //    Vector3 posHit = transform.position;
+    //    Quaternion rotaHit = transform.rotation;
+    //    Transform newImpactFx = FxSpawner.Instance.Spawn(fxName, posHit, rotaHit);
+    //    newImpactFx.gameObject.SetActive(true);
+    //}
 
-    protected virtual string GetImpactName()
-    {
-       return FxSpawner.impact1;
-    }
+    //protected virtual string GetImpactName()
+    //{
+    //   return FxSpawner.impact1;
+    //}
 }

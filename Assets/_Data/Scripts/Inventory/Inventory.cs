@@ -40,7 +40,7 @@ public class Inventory : MainMonoBehaviour
             ItemInventory itemInventory = new ItemInventory
             {
                 itemProfileSO = profile,
-                maxStack = profile.defaultMaxStack,
+                maxStack = profile.defaultMaxStack, 
             };
             this.items.Add(itemInventory);
             return itemInventory;
