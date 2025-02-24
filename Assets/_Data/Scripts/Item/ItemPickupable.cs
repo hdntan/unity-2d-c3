@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickupable : MainMonoBehaviour
+public class ItemPickupable : JunkAbstract
 {
     [SerializeField] protected SphereCollider sphereCollider;
+
+    public static ItemCode String2ItemCode(string itemName)
+    {
+        return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+    }
 
     protected override void LoadComponents()
     {
@@ -22,5 +27,13 @@ public class ItemPickupable : MainMonoBehaviour
         Debug.Log(transform.name + " :LoadCollider", gameObject);
     }
 
+    public virtual ItemCode GetItemCode()
+    {
+        return ItemPickupable.String2ItemCode(transform.parent.name);
+    }
 
+    public virtual void Picked()
+    {
+        this.ctrl.JunkDespawn.DespawnObject();
+    }
 }

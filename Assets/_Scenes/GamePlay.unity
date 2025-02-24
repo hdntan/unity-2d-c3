@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3490a907bbda64a86bc14c8f4aa814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ctrl: {fileID: 2072241817}
   sphereCollider: {fileID: 10828473}
 --- !u!135 &10828473
 SphereCollider:
@@ -897,7 +898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &448258320
 Transform:
   m_ObjectHideFlags: 0
@@ -1182,13 +1183,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562882857}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca0e940d5be5fc468243b0d36218a53, type: 3}
+  m_Script: {fileID: 11500000, guid: a00728b1f91d0234fa5a2799058e0113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  timerDelay: 15
+  disLimit: 25
+  distance: 0
+  mainCam: {fileID: 519420032}
 --- !u!1 &641360731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3490a907bbda64a86bc14c8f4aa814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ctrl: {fileID: 6088821678515886444}
   sphereCollider: {fileID: 1788290429}
 --- !u!135 &1788290429
 SphereCollider:
@@ -2982,6 +2985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2072241816}
+  - component: {fileID: 2072241817}
   m_Layer: 0
   m_Name: GoldOre
   m_TagString: Untagged
@@ -3007,6 +3011,21 @@ Transform:
   - {fileID: 10828471}
   m_Father: {fileID: 410576084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072241817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072241815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc3dfd8412ea674f8b142dd61b71225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1833244841}
+  junkDespawn: {fileID: 562882859}
+  junkSo: {fileID: 0}
 --- !u!1 &2077150116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6963,20 +6982,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2523146383292433882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7860247788384236713}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca0e940d5be5fc468243b0d36218a53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  timerDelay: 15
 --- !u!60 &2540007649059513218
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8109,6 +8114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5410966829936510082}
+  - component: {fileID: 6088821678515886444}
   m_Layer: 0
   m_Name: IronOre
   m_TagString: Untagged
@@ -8116,6 +8122,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6088821678515886444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088821678515886443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc3dfd8412ea674f8b142dd61b71225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 195823990}
+  junkDespawn: {fileID: 7860247788384236714}
+  junkSo: {fileID: 0}
 --- !u!212 &6356832650936385935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8711,7 +8732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6448175448346641979}
-  - component: {fileID: 2523146383292433882}
+  - component: {fileID: 7860247788384236714}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: Untagged
@@ -8719,6 +8740,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7860247788384236714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860247788384236713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00728b1f91d0234fa5a2799058e0113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disLimit: 25
+  distance: 0
+  mainCam: {fileID: 519420032}
 --- !u!4 &7883817326748116476
 Transform:
   m_ObjectHideFlags: 0

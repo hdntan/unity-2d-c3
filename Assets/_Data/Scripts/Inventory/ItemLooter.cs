@@ -56,10 +56,11 @@ public class ItemLooter : MainMonoBehaviour
        
         ItemPickupable itemPickupable = collider.GetComponent<ItemPickupable>();
         if (itemPickupable == null) return;
-        Debug.Log(collider.name);
-        Debug.Log(collider.transform.parent.name);
-        Debug.Log("Pick Item");
 
+        ItemCode itemCode = itemPickupable.GetItemCode();
+       if (this.inventory.AddItem(itemCode, 1)) {
+            itemPickupable.Picked();
+        }
 
     }
 }
