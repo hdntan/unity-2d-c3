@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickupable : JunkAbstract
+public class ItemPickupable : ItemDropAbstract
 {
     [SerializeField] protected SphereCollider sphereCollider;
 
@@ -39,7 +39,7 @@ public class ItemPickupable : JunkAbstract
         if (this.sphereCollider != null) return;
         this.sphereCollider = transform.GetComponent<SphereCollider>();
         this.sphereCollider.isTrigger = true;
-        this.sphereCollider.radius = 0.1f;
+        this.sphereCollider.radius = 0.2f;
         Debug.Log(transform.name + " :LoadCollider", gameObject);
     }
 
@@ -50,6 +50,6 @@ public class ItemPickupable : JunkAbstract
 
     public virtual void Picked()
     {
-        this.ctrl.JunkDespawn.DespawnObject();
+        this.itemDropCtrl.ItemDropDespawn.DespawnObject();
     }
 }
