@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,24 @@ public class ItemPickupable : JunkAbstract
 {
     [SerializeField] protected SphereCollider sphereCollider;
 
+
+    protected virtual void OnMouseDown()
+    {
+        PlayerCtrl.Instance.PlayerPickup.ItemPickup(this);
+    }
+
     public static ItemCode String2ItemCode(string itemName)
     {
-        return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+        try
+        {
+            return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
+
+        }
+        catch(ArgumentException e)
+        {
+            Debug.LogError(e.ToString());
+            return ItemCode.NoItem;
+        }
     }
 
     protected override void LoadComponents()

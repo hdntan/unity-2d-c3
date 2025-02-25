@@ -58,9 +58,11 @@ public class ItemLooter : MainMonoBehaviour
         if (itemPickupable == null) return;
 
         ItemCode itemCode = itemPickupable.GetItemCode();
-       if (this.inventory.AddItem(itemCode, 1)) {
+        if (this.inventory.AddItem(itemCode, 1)) {
             itemPickupable.Picked();
         }
 
     }
+
+ 
 }
