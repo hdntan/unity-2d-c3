@@ -10,7 +10,7 @@ public class Inventory : MainMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.IronOre,3);
+        //this.AddItem(ItemCode.IronOre,3);
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
