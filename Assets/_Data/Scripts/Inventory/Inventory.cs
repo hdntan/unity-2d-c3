@@ -133,6 +133,7 @@ public class Inventory : MainMonoBehaviour
             }
             itemInventory.itemCount -= deduct;
         }
+        this.ClearEmptySlot();
     }
     protected virtual bool IsInventoryFull()
     {
@@ -204,6 +205,16 @@ public class Inventory : MainMonoBehaviour
 
         }
         return totalCount;
+    }
+
+    protected virtual void ClearEmptySlot()
+    {
+        ItemInventory itemInventory;
+        for (int i = 0; i < this.items.Count; i++)
+        {
+            itemInventory = this.items[i];
+            if(itemInventory.itemCount == 0) this.items.RemoveAt(i);
+        }
     }
 }
 
