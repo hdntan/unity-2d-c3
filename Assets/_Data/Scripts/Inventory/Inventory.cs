@@ -6,11 +6,17 @@ public class Inventory : MainMonoBehaviour
 {
     [SerializeField] protected int maxSlot = 70;
     [SerializeField] protected List<ItemInventory> items;
+    public List<ItemInventory> Items => items;
+
 
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.IronOre,6);
+        this.AddItem(ItemCode.CopperSword,1);
+        this.AddItem(ItemCode.IronOre, 12);
+        this.AddItem(ItemCode.GoldOre, 5);
+
+
     }
 
     //public virtual bool AddItem(ItemCode itemCode, int addCount)
@@ -104,6 +110,30 @@ public class Inventory : MainMonoBehaviour
         return true;
     }
 
+
+    public virtual void DeductItem(ItemCode itemCode, int deductCount)
+    {
+        
+        int deduct;
+        ItemInventory itemInventory;
+        for (int i = this.items.Count - 1; i >= 0; i--)
+        {
+            if (deductCount < 0) break;
+            itemInventory = this.items[i];
+            if (itemInventory.itemProfileSO.itemCode != itemCode) continue;
+            if (deductCount > itemInventory.itemCount)
+            {
+                deduct = itemInventory.itemCount;
+                deductCount -= itemInventory.itemCount;
+            }
+            else
+            {
+                deduct = deductCount;
+                deductCount = 0;
+            }
+            itemInventory.itemCount -= deduct;
+        }
+    }
     protected virtual bool IsInventoryFull()
     {
         if (this.items.Count >= this.maxSlot) return true;
@@ -155,6 +185,25 @@ public class Inventory : MainMonoBehaviour
             maxStack = itemProfileSO.defaultMaxStack,
         };
         return itemInventory;
+    }
+
+    public virtual bool ItemCheck(ItemCode itemCode, int itemCount)
+    {
+        int totalCount = this.ItemTotalCount(itemCode);
+       
+        return totalCount >= itemCount;
+    }
+
+    public virtual int ItemTotalCount(ItemCode itemCode)
+    {
+        int totalCount = 0; 
+        foreach (ItemInventory itemInventory in this.items)
+        {
+            if (itemInventory.itemProfileSO.itemCode != itemCode) continue;
+            totalCount += itemInventory.itemCount;
+
+        }
+        return totalCount;
     }
 }
 

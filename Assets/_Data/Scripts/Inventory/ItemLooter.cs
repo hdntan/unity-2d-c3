@@ -6,12 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class ItemLooter : MainMonoBehaviour
+public class ItemLooter : InventoryAbstract
 {
     [SerializeField] protected SphereCollider sphereCollider;
     [SerializeField] protected Rigidbody rigidBody;
 
-    [SerializeField] protected Inventory inventory;
 
 
     protected override void LoadComponents()
@@ -19,7 +18,6 @@ public class ItemLooter : MainMonoBehaviour
         base.LoadComponents();
         this.LoadSphereCollier();
         this.LoadRigidBody();
-        this.LoadInventory();
     }
 
     protected virtual void LoadSphereCollier()
@@ -43,12 +41,6 @@ public class ItemLooter : MainMonoBehaviour
     }
 
 
-    protected virtual void LoadInventory()
-    {
-        if (this.inventory != null) return;
-        this.inventory = transform.parent.GetComponent<Inventory>();
-        Debug.LogWarning(transform.name + " :LoadInventory", gameObject);
-    }
 
 
     protected virtual void OnTriggerEnter(Collider collider)

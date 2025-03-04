@@ -242,6 +242,52 @@ MonoBehaviour:
   model: {fileID: 641360732}
   junkDespawn: {fileID: 1383383606}
   junkSo: {fileID: 11400000, guid: 047a248fb5a300f44aaa4e4faa2742ba, type: 2}
+--- !u!1 &25752716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25752717}
+  - component: {fileID: 25752718}
+  m_Layer: 0
+  m_Name: ItemUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &25752717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25752716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 250067077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25752718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25752716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a88086a354c7d4dbcf686f250591a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  maxLevel: 9
 --- !u!1 &48623147
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +926,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1902933730}
+  - {fileID: 25752717}
   m_Father: {fileID: 712161934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &250067078
@@ -3134,9 +3181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221afbadec1d70b458eafb963c846efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 250067078}
   sphereCollider: {fileID: 1805107270}
   rigidBody: {fileID: 1805107269}
-  inventory: {fileID: 250067078}
 --- !u!54 &1805107269
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3392,9 +3439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221afbadec1d70b458eafb963c846efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 250067078}
   sphereCollider: {fileID: 1902933733}
   rigidBody: {fileID: 1902933732}
-  inventory: {fileID: 250067078}
 --- !u!54 &1902933732
 Rigidbody:
   m_ObjectHideFlags: 0
