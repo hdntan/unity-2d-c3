@@ -436,6 +436,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 909717256}
   itemDropDespawn: {fileID: 631350675}
+  itemInventory:
+    itemProfileSO: {fileID: 0}
+    itemCount: 0
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &82337573
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +530,7 @@ GameObject:
   - component: {fileID: 139331863}
   - component: {fileID: 139331864}
   m_Layer: 0
-  m_Name: ItemDrop
+  m_Name: InventoryDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,7 +3163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3490a907bbda64a86bc14c8f4aa814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDropCtrl: {fileID: 6088821678515886444}
+  itemDropCtrl: {fileID: 0}
   sphereCollider: {fileID: 1788290429}
 --- !u!135 &1788290429
 SphereCollider:
@@ -3824,6 +3829,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1833244841}
   itemDropDespawn: {fileID: 562882859}
+  itemInventory:
+    itemProfileSO: {fileID: 0}
+    itemCount: 0
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &2077150116
 GameObject:
   m_ObjectHideFlags: 0
@@ -8934,6 +8944,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 195823990}
   itemDropDespawn: {fileID: 7860247788384236714}
+  itemInventory:
+    itemProfileSO: {fileID: 0}
+    itemCount: 0
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!212 &6356832650936385935
 SpriteRenderer:
   m_ObjectHideFlags: 0
