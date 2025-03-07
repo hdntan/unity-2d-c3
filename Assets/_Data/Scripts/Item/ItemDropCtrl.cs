@@ -22,6 +22,12 @@ public class ItemDropCtrl : MainMonoBehaviour
         this.LoadItemInventory();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        this.ResetItem();
+    }
+
     protected virtual void LoadModel()
     {
         if (this.model != null) return;
@@ -38,7 +44,9 @@ public class ItemDropCtrl : MainMonoBehaviour
 
     public virtual void SetItemInventory(ItemInventory itemInventory)
     {
-        this.itemInventory = itemInventory;
+        this.itemInventory = itemInventory.Clone();
+     
+
     }
 
     protected virtual void LoadItemInventory()
@@ -47,9 +55,15 @@ public class ItemDropCtrl : MainMonoBehaviour
         ItemCode itemCode = ItemCodeParser.FromString(transform.name);
         ItemProfileSO itemProfile = ItemProfileSO.FindByItemCode(itemCode);
         this.itemInventory.itemProfileSO = itemProfile;
-        this.itemInventory.itemCount = 1;
         this.itemInventory.maxStack = itemProfile.defaultMaxStack;
-
+        this.ResetItem();
         Debug.Log(transform.name + " :loadItemInventory", gameObject);
+    }
+
+    protected virtual void ResetItem()
+    {
+        this.itemInventory.itemCount = 1;
+        this.itemInventory.upgradeLevel = 0;
+
     }
 }

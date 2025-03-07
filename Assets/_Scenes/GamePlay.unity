@@ -437,9 +437,9 @@ MonoBehaviour:
   model: {fileID: 909717256}
   itemDropDespawn: {fileID: 631350675}
   itemInventory:
-    itemProfileSO: {fileID: 0}
-    itemCount: 0
-    maxStack: 7
+    itemProfileSO: {fileID: 11400000, guid: b53a6c79882459e4081a1e64ad84e797, type: 2}
+    itemCount: 1
+    maxStack: 1
     upgradeLevel: 0
 --- !u!1 &82337573
 GameObject:
@@ -3830,8 +3830,8 @@ MonoBehaviour:
   model: {fileID: 1833244841}
   itemDropDespawn: {fileID: 562882859}
   itemInventory:
-    itemProfileSO: {fileID: 0}
-    itemCount: 0
+    itemProfileSO: {fileID: 11400000, guid: c7350ef81ada5144bb10877a50de0b99, type: 2}
+    itemCount: 1
     maxStack: 7
     upgradeLevel: 0
 --- !u!1 &2077150116
@@ -8945,8 +8945,8 @@ MonoBehaviour:
   model: {fileID: 195823990}
   itemDropDespawn: {fileID: 7860247788384236714}
   itemInventory:
-    itemProfileSO: {fileID: 0}
-    itemCount: 0
+    itemProfileSO: {fileID: 11400000, guid: 1cfc9bd3fdf95ef42bb9736584632f90, type: 2}
+    itemCount: 1
     maxStack: 7
     upgradeLevel: 0
 --- !u!212 &6356832650936385935
