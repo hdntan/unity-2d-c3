@@ -14,6 +14,7 @@ public class GameCtrl : MainMonoBehaviour
     protected override void Awake()
     {
         base.Awake();
+        Debug.Log("Awake game ctrl");
         if (GameCtrl.instance != null) Debug.LogError("Only 1 InputManager allow to exits");
         GameCtrl.instance = this;
     }

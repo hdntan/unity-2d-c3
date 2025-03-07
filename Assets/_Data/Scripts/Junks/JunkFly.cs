@@ -17,13 +17,14 @@ public class JunkFly : ParentFly
     protected override void OnEnable()
     {
         base.OnEnable();
+        Debug.Log("Enable Junk");
         this.GetFlyDirection();
     }
 
 
     protected virtual void GetFlyDirection()
     {
-        Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position;
+        Vector3 camPos = this.GetCamPos();
         Vector3 objPos = transform.parent.position;
 
         camPos.x += Random.Range(this.minCampos, this.maxCampos);
@@ -36,6 +37,13 @@ public class JunkFly : ParentFly
 
         Debug.DrawLine(objPos, objPos + diff * 7, Color.red, Mathf.Infinity );
 
+    }
+
+    protected virtual Vector3 GetCamPos()
+    {
+        if(GameCtrl.Instance == null) return Vector3.zero;
+        Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position;
+        return camPos;
     }
 
 
