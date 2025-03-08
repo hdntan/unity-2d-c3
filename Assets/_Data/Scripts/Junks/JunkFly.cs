@@ -17,7 +17,6 @@ public class JunkFly : ParentFly
     protected override void OnEnable()
     {
         base.OnEnable();
-        Debug.Log("Enable Junk");
         this.GetFlyDirection();
     }
 
