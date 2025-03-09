@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 641360732}
   junkDespawn: {fileID: 1383383606}
-  junkSo: {fileID: 11400000, guid: 047a248fb5a300f44aaa4e4faa2742ba, type: 2}
+  shootableObject: {fileID: 11400000, guid: 5146ec3f9bb32224d8b00fb065973694, type: 2}
 --- !u!1 &25752716
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 793210791}
   junkDespawn: {fileID: 1688811428}
-  junkSo: {fileID: 11400000, guid: 6ca6ad390e76784459b4b4b687a271cc, type: 2}
+  shootableObject: {fileID: 11400000, guid: 61d755ab23f276b488db42c6d180640a, type: 2}
 --- !u!1 &52141371
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 169417076}
   junkDespawn: {fileID: 1915596057}
-  junkSo: {fileID: 11400000, guid: 6ca6ad390e76784459b4b4b687a271cc, type: 2}
+  shootableObject: {fileID: 11400000, guid: 61d755ab23f276b488db42c6d180640a, type: 2}
 --- !u!1 &63244379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 601764728}
   junkDespawn: {fileID: 1824216201}
-  junkSo: {fileID: 11400000, guid: ab672e00e46c91c408095ce5ff988d00, type: 2}
+  shootableObject: {fileID: 11400000, guid: 663474964e3f07246b99e91459a1472a, type: 2}
 --- !u!1 &410576083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 223983012}
   junkDespawn: {fileID: 423266199}
-  junkSo: {fileID: 11400000, guid: ab672e00e46c91c408095ce5ff988d00, type: 2}
+  shootableObject: {fileID: 11400000, guid: 663474964e3f07246b99e91459a1472a, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 63244380}
   junkDespawn: {fileID: 1264346949}
-  junkSo: {fileID: 11400000, guid: 047a248fb5a300f44aaa4e4faa2742ba, type: 2}
+  shootableObject: {fileID: 11400000, guid: 5146ec3f9bb32224d8b00fb065973694, type: 2}
 --- !u!1 &775953626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63e43531db93d14394d7b0978de6017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameScene: GalaxyDemo
 --- !u!135 &1012012385
 SphereCollider:
   m_ObjectHideFlags: 0

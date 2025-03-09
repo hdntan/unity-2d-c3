@@ -32,7 +32,7 @@ public class JunkDamageReceiver : DamageReceiver
     {
         Vector3 dropPos = transform.position;
         Quaternion dropRota = transform.rotation;
-        ItemDropSpawner.Instance.Drop(this.ctrl.JunkSO.dropList,dropPos, dropRota);
+        ItemDropSpawner.Instance.Drop(this.ctrl.ShootableObject.dropList,dropPos, dropRota);
 
     }
 
@@ -50,7 +50,7 @@ public class JunkDamageReceiver : DamageReceiver
 
     public override void Reborn()
     {
-        this.hpMax = this.ctrl.JunkSO.hpMax;
+        this.hpMax = this.ctrl.ShootableObject.hpMax;
         base.Reborn();
     }
 }
