@@ -2,28 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkDamageReceiver : DamageReceiver
+public class ShootableObjDamageReceiver : DamageReceiver
 {
-    [SerializeField] protected JunkCtrl ctrl;
+   
+
+    [SerializeField] protected ShootableObjectCtrl ctrl;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadJunkCtrl();
+        this.LoadShootableObjectCtrl();
     }
 
-    protected virtual void LoadJunkCtrl()
+    protected virtual void LoadShootableObjectCtrl()
     {
         if (this.ctrl != null) return;
-        this.ctrl = transform.parent.GetComponent<JunkCtrl>();
-        Debug.Log(transform.name + " :LoadJunkCtrl", gameObject);
+        this.ctrl = transform.parent.GetComponent<ShootableObjectCtrl>();
+        Debug.Log(transform.name + " :LoadShootableObjectCtrl", gameObject);
     }
 
     protected override void OnDead()
     {
 
         this.OnDeadFx();
-        this.OnDeadDrop();  
+        this.OnDeadDrop();
         this.ctrl.Despawn.DespawnObject();
         //Drop Item
     }
@@ -32,7 +34,7 @@ public class JunkDamageReceiver : DamageReceiver
     {
         Vector3 dropPos = transform.position;
         Quaternion dropRota = transform.rotation;
-        ItemDropSpawner.Instance.Drop(this.ctrl.ShootableObject.dropList,dropPos, dropRota);
+        ItemDropSpawner.Instance.Drop(this.ctrl.ShootableObject.dropList, dropPos, dropRota);
 
     }
 
@@ -40,7 +42,7 @@ public class JunkDamageReceiver : DamageReceiver
     {
         string fxName = this.GetOnDeadFxName();
         Transform newFxOnDead = FxSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
-        newFxOnDead.gameObject.SetActive(true); 
+        newFxOnDead.gameObject.SetActive(true);
     }
 
     protected virtual string GetOnDeadFxName()
@@ -54,4 +56,3 @@ public class JunkDamageReceiver : DamageReceiver
         base.Reborn();
     }
 }
-

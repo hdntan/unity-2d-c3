@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkCtrl : ShootableObjectCtrl
+public class EnemyCtrl : ShootableObjectCtrl
 {
     protected override string GetObjTypeString()
     {
-       return ObjType.Junk.ToString();  
+       return ObjType.Enemy.ToString();
     }
 }
