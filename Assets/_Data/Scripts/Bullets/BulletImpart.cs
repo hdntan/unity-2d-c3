@@ -42,10 +42,9 @@ public class BulletImpart : BulletAbstract
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-      
         if (other.transform.parent == this.ctrl.Shooter) return;
         this.ctrl.DamageSender.Send(other.transform);
-       // this.CreateImpactFx(other);
+        // this.CreateImpactFx(other);
     }
 
     //protected virtual void CreateImpactFx(Collider other)
@@ -59,6 +58,6 @@ public class BulletImpart : BulletAbstract
 
     //protected virtual string GetImpactName()
     //{
-    //   return FxSpawner.impact1;
+    //    return FxSpawner.impact1;
     //}
 }

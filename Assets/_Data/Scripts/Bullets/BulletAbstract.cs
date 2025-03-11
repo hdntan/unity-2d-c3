@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletAbstract : MainMonoBehaviour
 {
     [SerializeField] protected BulletCtrl ctrl;
-    public BulletCtrl BulletCtrl { get { return ctrl; } }
+    public BulletCtrl Ctrl => ctrl;
 
     protected override void LoadComponents()
     {

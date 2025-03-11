@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipShooting : MonoBehaviour
+public abstract class ShipShooting : MainMonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDeley = 1f;
@@ -11,13 +11,13 @@ public class ShipShooting : MonoBehaviour
 
 
 
-    void Update()
+    protected virtual void Update()
     {
         this.IsShooting();
     }
 
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         this.Shooting();
 
@@ -42,9 +42,6 @@ public class ShipShooting : MonoBehaviour
     }
 
 
-    protected virtual bool IsShooting()
-    {
-        this.isShooting = InputManager.Instance.OnFiring == 1;
-        return this.isShooting;
-    }
+    protected abstract bool IsShooting();
+  
 }
