@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkSpawnerRandom : MainMonoBehaviour
+public class SpawnerRandom : MainMonoBehaviour
 {
-    [SerializeField] protected JunkSpawnerCtrl ctrl;
+    [SerializeField] protected SpawnerCtrl ctrl;
     [SerializeField] protected float randomDelay = 1f;
     [SerializeField] protected float randomTimer = 0f;
     [SerializeField] protected int randomLimit = 9;
@@ -21,7 +21,7 @@ public class JunkSpawnerRandom : MainMonoBehaviour
     protected virtual void LoadJunkSpawnerCtrl()
     {
         if (this.ctrl != null) return;
-        this.ctrl = transform.GetComponent<JunkSpawnerCtrl>();
+        this.ctrl = transform.GetComponent<SpawnerCtrl>();
         Debug.Log(transform.name + " :LoadJunkSpawnerCtrl", gameObject);
     }
 
@@ -32,10 +32,10 @@ public class JunkSpawnerRandom : MainMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        this.JunkSpawning();
+        this.Spawning();
     }
 
-    protected virtual void JunkSpawning()
+    protected virtual void Spawning()
     {
         if (this.RandomReachLimit()) return;
 
@@ -43,11 +43,11 @@ public class JunkSpawnerRandom : MainMonoBehaviour
         if (this.randomTimer < this.randomDelay) return;
         this.randomTimer = 0;
 
-        Transform ranPoint = this.ctrl.JunkSpawnPoints.GetRandomPoint();
+        Transform ranPoint = this.ctrl.SpawnPoints.GetRandomPoint();
         Vector3 pos = ranPoint.position;
         Quaternion rot = transform.rotation;
-        Transform prefab = this.ctrl.JunkSpawner.GetPrefabRandom();
-        Transform newObj = this.ctrl.JunkSpawner.Spawn(prefab, pos, rot);
+        Transform prefab = this.ctrl.Spawner.GetPrefabRandom();
+        Transform newObj = this.ctrl.Spawner.Spawn(prefab, pos, rot);
         newObj.gameObject.SetActive(true);
 
        
@@ -55,7 +55,7 @@ public class JunkSpawnerRandom : MainMonoBehaviour
 
     protected virtual bool RandomReachLimit ()
     {
-        int currentJunkCount = this.ctrl.JunkSpawner.SpawnCount;
+        int currentJunkCount = this.ctrl.Spawner.SpawnCount;
         return currentJunkCount >= this.randomLimit;
       
     }

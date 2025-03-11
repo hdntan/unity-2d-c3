@@ -5,22 +5,23 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] public Vector3 targetPosition; 
-    [SerializeField] public float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 0.01f;
+    [SerializeField] public float distance = 1f;
+    [SerializeField] public float minDistance = 1f;
 
-    void FixedUpdate()
+
+
+    protected virtual void FixedUpdate()
     {    
-       this.GetTargetPosition();
+
        this.LookAtTarget();
        this.Moving();
        
     }
 
-    protected virtual void GetTargetPosition()
-    {
-        this.targetPosition = InputManager.Instance.MousePosition;
-        this.targetPosition.z = 0;
-    }
+   
 
+ 
     protected virtual void LookAtTarget()
     {
       
@@ -32,6 +33,8 @@ public class ShipMovement : MonoBehaviour
 
     protected virtual void Moving()
     {
+        this.distance = Vector3.Distance(transform.position, this.targetPosition);
+        if (this.distance < this.minDistance) return;
         Vector3 newPos = Vector3.Lerp(transform.parent.position, this.targetPosition, this.moveSpeed * Time.deltaTime);
         transform.parent.position = newPos;
     }
