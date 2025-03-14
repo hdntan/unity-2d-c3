@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilitySummonEnemy : AbilitySummon
+public class AbilitySummonEnemy : AbilitySummon 
 {
     protected override void LoadComponents()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipShootingByDistance : ShipShooting
+public class ShipShootingByDistance : ObjectShooting
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected float distance = Mathf.Infinity;

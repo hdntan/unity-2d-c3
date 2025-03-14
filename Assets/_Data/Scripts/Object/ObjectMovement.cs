@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipMovement : MonoBehaviour
+public class ObjectMovement : MonoBehaviour
 {
     [SerializeField] public Vector3 targetPosition; 
     [SerializeField] public float moveSpeed = 0.01f;

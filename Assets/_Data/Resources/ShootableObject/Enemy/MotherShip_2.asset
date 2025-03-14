@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: MotherShip_2
   objType: 3
-  hpMax: 100
+  hpMax: 1000
   dropList:
   - ItemSO: {fileID: 11400000, guid: b53a6c79882459e4081a1e64ad84e797, type: 2}
     dropRate: 70000

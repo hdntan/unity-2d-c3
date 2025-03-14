@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipFollowTarget : ShipMovement
+public class ShipFollowTarget : ObjectMovement
 {
     [SerializeField] protected Transform target;
 
