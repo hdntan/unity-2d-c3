@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCtrl : ShootableObjectCtrl
+public class EnemyCtrl : AbilityObjectCtrl
 {
     protected override string GetObjTypeString()
     {
        return ObjType.Enemy.ToString();
     }
+
+   
 }

@@ -16,4 +16,5 @@ public class JunkRotate : JunkAbstract
         Vector3 elures = new Vector3(0,0,1);
         this.ctrl.Model.Rotate(elures * this.speed * Time.fixedDeltaTime);
     }
+    
 }

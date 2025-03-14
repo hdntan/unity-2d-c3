@@ -18,10 +18,13 @@ public class AbilitySummon : BaseAbility
         this.Summon();
     }
 
+    
+
     protected virtual void Summon()
     {
+        Transform spawPos = this.Abilities.AbilityObjectCtrl.SpawnPoints.GetRandomPoint();
         Transform prefab = this.spawner.GetPrefabRandom();  
-        Transform newMinion = this.spawner.Spawn(prefab, transform.position, transform.rotation);
+        Transform newMinion = this.spawner.Spawn(prefab, spawPos.position, spawPos.rotation);
         newMinion.gameObject.SetActive(true);
         this.Active();
         

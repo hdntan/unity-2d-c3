@@ -19,4 +19,10 @@ public class ShipCtrl : MainMonoBehaviour
         this.inventory = transform.GetComponentInChildren<Inventory>();
         Debug.Log(transform.name + " :LoadInventory", gameObject);
     }
+
+   
+    
+    
+    
+
 }

@@ -9,11 +9,28 @@ public abstract class BaseAbility : MainMonoBehaviour
     [SerializeField] protected float delay = 2f;
     [SerializeField] protected bool isReady = false;
 
+    [SerializeField] protected Abilities abilities;
+    public Abilities Abilities => abilities;
+
+
     protected virtual void FixedUpdate()
     {
         this.Timming();
     }
 
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadAbilities();
+    }
+
+    protected virtual void LoadAbilities()
+    {
+        if (this.abilities != null) return;
+        this.abilities = transform.parent.GetComponent<Abilities>();
+        Debug.Log(transform.name + " :LoadAbilities", gameObject);
+    }
 
     protected virtual void Timming()
     {
