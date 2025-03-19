@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipDamageReceiver : MonoBehaviour
+public class ShipDamageReceiver : DamageReceiver
 {
-    
+    protected override void OnDead()
+    {
+        
+    }
 }

@@ -6,6 +6,8 @@ public class ObjectMovement : MonoBehaviour
 {
     [SerializeField] public Vector3 targetPosition; 
     [SerializeField] public float moveSpeed = 0.01f;
+    [SerializeField] public float roteSpeed = 0.5f;
+
     [SerializeField] public float distance = 1f;
     [SerializeField] public float minDistance = 1f;
 
@@ -19,16 +21,18 @@ public class ObjectMovement : MonoBehaviour
        
     }
 
-   
-
- 
     protected virtual void LookAtTarget()
     {
       
         Vector3 diff = this.targetPosition - transform.parent.position;
         diff.Normalize();
+
+        float timeSpeed = this.roteSpeed * Time.fixedDeltaTime;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z);
+
+        Quaternion targetEuler = Quaternion.Euler(0f, 0f, rot_z);
+        Quaternion currentEuler = Quaternion.Lerp(transform.parent.rotation, targetEuler, timeSpeed);
+        transform.parent.rotation = currentEuler;
     }
 
     protected virtual void Moving()

@@ -24,18 +24,14 @@ public class BulletDamageSender : DamageSender
     {
 
         base.Send(damageReceiver);
+        this.CreateImpactFx();   
         this.DestroyBullet();
-
     }
 
-    public override void Send(Transform target)
-    {
-        this.CreateImpactFx();
-        this.DestroyBullet();
-        base.Send(target);
-       
 
-    }
+
+
+
 
     protected virtual void DestroyBullet()
     {
