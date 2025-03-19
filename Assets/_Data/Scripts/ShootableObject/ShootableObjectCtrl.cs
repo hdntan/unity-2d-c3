@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ShootableObjectCtrl : MainMonoBehaviour
 {
 
+    [Header("Shootable Object ctrl")]
     [SerializeField] protected Transform model;
     public Transform Model => model;
 
@@ -15,12 +16,16 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     [SerializeField] protected ShootableObjectSO shootableObject;
     public ShootableObjectSO ShootableObject => shootableObject;
 
+    [SerializeField] protected ObjectShooting objectShooting;
+    public ObjectShooting ObjectShooting => objectShooting;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadModel();
         this.LoadJunkDespawn();
         this.LoadShootableObjectSO();
+        this.LoadObjectShooting();
     }
 
     protected virtual void LoadModel()
@@ -46,6 +51,15 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
         Debug.Log(transform.name + " :LoadJunkSO" + resPath, gameObject);
 
     }
+
+    protected virtual void LoadObjectShooting()
+    {
+        if (this.objectShooting != null) return;
+        this.objectShooting = transform.GetComponentInChildren<ObjectShooting>();
+        Debug.Log(transform.name + " :LoadObjectShooting", gameObject);
+
+    }
+
 
     protected abstract string GetObjTypeString();
   
