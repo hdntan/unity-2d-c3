@@ -952,6 +952,52 @@ MonoBehaviour:
   drirection: {x: 1, y: 0, z: 0}
   minCampos: -17
   maxCampos: 17
+--- !u!1 &215016071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215016072}
+  - component: {fileID: 215016073}
+  m_Layer: 0
+  m_Name: ObjLookAtTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215016072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215016071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 712161934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215016073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215016071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01de51fda79a254ea2f0dae00f85b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  roteSpeed: 3
 --- !u!1 &221069720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1901,7 @@ GameObject:
   - component: {fileID: 448258320}
   - component: {fileID: 448258321}
   m_Layer: 0
-  m_Name: ShipMovement
+  m_Name: ObjMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1873,7 +1919,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1531469657}
   m_Father: {fileID: 712161934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &448258321
@@ -1885,14 +1932,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 448258319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c199faee363ad64e89deb86ca449af0, type: 3}
+  m_Script: {fileID: 11500000, guid: 094722342bde17b4bb82af263e7598c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  moveSpeed: 2
-  roteSpeed: 5
-  distance: 0.01
+  moveSpeed: 1
+  distance: 1
   minDistance: 1
+  moveTarget: {fileID: 1531469657}
 --- !u!1 &508986042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2716,7 @@ Transform:
   - {fileID: 1624489510}
   - {fileID: 847433452}
   - {fileID: 250067077}
+  - {fileID: 215016072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &712161935
@@ -3304,6 +3352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5a8a072e686214899c6d47a35df296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 0}
+  hp: 1
+  hpMax: 2
+  isDead: 0
 --- !u!1 &858590696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,7 +3402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   moveSpeed: 0.5
-  roteSpeed: 2
   distance: 1
   minDistance: 3
   target: {fileID: 712161934}
@@ -5391,6 +5442,37 @@ MonoBehaviour:
   damageSender: {fileID: 560497091}
   bulletDespawn: {fileID: 48623149}
   shooter: {fileID: 0}
+--- !u!1 &1531469656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531469657}
+  m_Layer: 0
+  m_Name: MoveTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531469657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531469656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 448258320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582303186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5555,7 @@ GameObject:
   - component: {fileID: 1624489510}
   - component: {fileID: 1624489511}
   m_Layer: 0
-  m_Name: ShipShooting
+  m_Name: ObjShooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5848,7 +5930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   moveSpeed: 1
-  roteSpeed: 0.01
   distance: 1
   minDistance: 5
   target: {fileID: 712161934}
@@ -6824,7 +6905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   moveSpeed: 0.01
-  roteSpeed: 0.5
   distance: 1
   minDistance: 5
   target: {fileID: 712161934}
