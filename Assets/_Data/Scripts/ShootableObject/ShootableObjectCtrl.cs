@@ -19,6 +19,12 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     [SerializeField] protected ObjectShooting objectShooting;
     public ObjectShooting ObjectShooting => objectShooting;
 
+
+    [SerializeField] protected ObjectMovement objectMovement;
+    public ObjectMovement ObjectMovement => objectMovement;
+
+    [SerializeField] protected ObjLookAtTarget objLookAtTarget;
+    public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -26,6 +32,8 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
         this.LoadJunkDespawn();
         this.LoadShootableObjectSO();
         this.LoadObjectShooting();
+        this.LoadObjectMovement();
+        this.LoadObjectLookAtTarget();
     }
 
     protected virtual void LoadModel()
@@ -57,6 +65,22 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
         if (this.objectShooting != null) return;
         this.objectShooting = transform.GetComponentInChildren<ObjectShooting>();
         Debug.Log(transform.name + " :LoadObjectShooting", gameObject);
+
+    }
+
+    protected virtual void LoadObjectMovement()
+    {
+        if (this.objectMovement != null) return;
+        this.objectMovement = transform.GetComponentInChildren<ObjectMovement>();
+        Debug.Log(transform.name + " :LoadObjectMovement", gameObject);
+
+    }
+
+    protected virtual void LoadObjectLookAtTarget()
+    {
+        if (this.objLookAtTarget != null) return;
+        this.objLookAtTarget = transform.GetComponentInChildren<ObjLookAtTarget>();
+        Debug.Log(transform.name + " :LoadObjectLookAtTarget", gameObject);
 
     }
 

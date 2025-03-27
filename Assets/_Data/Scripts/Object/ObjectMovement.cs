@@ -25,7 +25,7 @@ public class ObjectMovement : MainMonoBehaviour
     {
         this.distance = Vector3.Distance(transform.position, this.targetPosition);
         if (this.distance < this.minDistance) return;
-        Vector3 newPos = Vector3.Lerp(transform.parent.position, this.targetPosition, this.moveSpeed * Time.deltaTime);
+        Vector3 newPos = Vector3.Lerp(transform.parent.position, this.targetPosition, this.moveSpeed);
         transform.parent.position = newPos;
     }
 }

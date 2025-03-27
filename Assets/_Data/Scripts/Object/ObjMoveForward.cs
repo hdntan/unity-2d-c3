@@ -31,4 +31,5 @@ public class ObjMoveForward : ObjectMovement
         this.targetPosition = moveTarget.position;
         this.targetPosition.z = 0;
     }
+
 }
