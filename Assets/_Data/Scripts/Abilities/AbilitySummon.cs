@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AbilitySummon : BaseAbility
 {
+    [Header("Ability Summon")]
     [SerializeField] protected Spawner spawner;
 
     protected override void FixedUpdate()
@@ -20,13 +21,14 @@ public class AbilitySummon : BaseAbility
 
     
 
-    protected virtual void Summon()
+    protected virtual Transform Summon()
     {
         Transform spawPos = this.Abilities.AbilityObjectCtrl.SpawnPoints.GetRandomPoint();
         Transform prefab = this.spawner.GetPrefabRandom();  
         Transform newMinion = this.spawner.Spawn(prefab, spawPos.position, spawPos.rotation);
         newMinion.gameObject.SetActive(true);
         this.Active();
+        return newMinion;
         
     }
 }
