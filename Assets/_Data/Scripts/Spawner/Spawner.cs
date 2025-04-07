@@ -113,4 +113,9 @@ public abstract class Spawner : MainMonoBehaviour
         return this.prefabs[ran];
     }
 
+    public virtual void Hold(Transform obj)
+    {
+       obj.parent = this.holder;
+    }
+
 }

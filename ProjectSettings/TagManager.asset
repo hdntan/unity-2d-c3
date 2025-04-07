@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 4109554381
+    locked: 0
+  - name: Planet
+    uniqueID: 3336913807
+    locked: 0
+  - name: Hole
+    uniqueID: 1582396093
+    locked: 0
+  - name: MotherShip
+    uniqueID: 3351788527
+    locked: 0
+  - name: Ship
+    uniqueID: 1201533475
+    locked: 0
+  - name: Item
+    uniqueID: 744589573
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
