@@ -45,21 +45,21 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     {
         if (this.spawner != null) return;
         this.spawner = transform.parent?.parent?.GetComponent<Spawner>(); 
-        Debug.Log(transform.name + " :LoadSpawner", gameObject);
+        Debug.LogWarning(transform.name + " :LoadSpawner", gameObject);
     }
 
     protected virtual void LoadModel()
     {
         if (this.model != null) return;
         this.model = transform.Find("Model");
-        Debug.Log(transform.name + " :LoadModel", gameObject);
+        Debug.LogWarning(transform.name + " :LoadModel", gameObject);
     }
 
     protected virtual void LoadJunkDespawn()
     {
         if (this.despawn != null) return;
         this.despawn = transform.GetComponentInChildren<Despawn>();
-        Debug.Log(transform.name + " :LoadDespawn", gameObject);
+        Debug.LogWarning(transform.name + " :LoadDespawn", gameObject);
 
     }
 
@@ -68,7 +68,7 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
         if (this.shootableObject != null) return;
         string resPath = "ShootableObject/" + this.GetObjTypeString() + "/" + transform.name;
         this.shootableObject = Resources.Load<ShootableObjectSO>(resPath);
-        Debug.Log(transform.name + " :LoadJunkSO" + resPath, gameObject);
+        Debug.LogWarning(transform.name + " :LoadJunkSO" + resPath, gameObject);
 
     }
 
@@ -76,7 +76,7 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     {
         if (this.objectShooting != null) return;
         this.objectShooting = transform.GetComponentInChildren<ObjectShooting>();
-        Debug.Log(transform.name + " :LoadObjectShooting", gameObject);
+        Debug.LogWarning(transform.name + " :LoadObjectShooting", gameObject);
 
     }
 
@@ -84,7 +84,7 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     {
         if (this.objectMovement != null) return;
         this.objectMovement = transform.GetComponentInChildren<ObjectMovement>();
-        Debug.Log(transform.name + " :LoadObjectMovement", gameObject);
+        Debug.LogWarning(transform.name + " :LoadObjectMovement", gameObject);
 
     }
 
@@ -92,7 +92,7 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
     {
         if (this.objLookAtTarget != null) return;
         this.objLookAtTarget = transform.GetComponentInChildren<ObjLookAtTarget>();
-        Debug.Log(transform.name + " :LoadObjectLookAtTarget", gameObject);
+        Debug.LogWarning(transform.name + " :LoadObjectLookAtTarget", gameObject);
 
     }
 

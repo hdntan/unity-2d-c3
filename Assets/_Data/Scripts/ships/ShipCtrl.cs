@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipCtrl : MainMonoBehaviour
+public class ShipCtrl : AbilityObjectCtrl
 {
+    [Header("Ship")]
     [SerializeField] protected Inventory inventory;
     public Inventory Inventory => inventory;
+
+    protected override string GetObjTypeString()
+    {
+        return ObjType.Ship.ToString();
+    }
 
     protected override void LoadComponents()
     {

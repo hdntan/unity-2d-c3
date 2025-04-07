@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkFly : ParentFly
+public class JunkFly : ObjectMovement
 {
     [SerializeField] protected float minCampos = -17f;
     [SerializeField] protected float maxCampos = 17f;
@@ -43,6 +43,11 @@ public class JunkFly : ParentFly
         if(GameCtrl.Instance == null) return Vector3.zero;
         Vector3 camPos = GameCtrl.Instance.MainCamera.transform.position;
         return camPos;
+    }
+
+    protected override void Moving()
+    {
+        transform.parent.Translate(this.drirection * this.moveSpeed * Time.deltaTime);
     }
 
 

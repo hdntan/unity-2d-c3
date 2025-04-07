@@ -22,15 +22,15 @@ public class SpawnerCtrl : MainMonoBehaviour
     {
         if (this.spawner != null) return;
         this.spawner = transform.GetComponent<Spawner>();
-        Debug.Log(transform.name + " :LoadSpawner", gameObject);
+        Debug.LogWarning(transform.name + " :LoadSpawner", gameObject);
     }
 
 
     protected virtual void LoadSpawnPoint()
     {
         if (this.spawnPoints != null) return;
-        this.spawnPoints = Transform.FindObjectOfType<SpawnPoints>();
-        Debug.Log(transform.name + " :LoadSpawnerPoints", gameObject);
+        this.spawnPoints = GameObject.Find("SceneSpawnPoints").GetComponent<SpawnPoints>();
+        Debug.LogWarning(transform.name + " :LoadSceneSpawnerPoints", gameObject);
     }
 
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ObjectMovement : MainMonoBehaviour
 {
+    [Header("Obj Movement")]
     [SerializeField] public Vector3 targetPosition; 
     [SerializeField] public float moveSpeed = 0.01f;
     [SerializeField] public float distance = 1f;
     [SerializeField] public float minDistance = 1f;
+    [SerializeField] protected Vector3 drirection = Vector3.right;
+
 
 
 
