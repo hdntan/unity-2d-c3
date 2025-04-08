@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ public class ItemDropSpawner : Spawner
 {
     private static ItemDropSpawner instance;
     public static ItemDropSpawner Instance { get => instance; }
+
+    [SerializeField] protected float dropRate = 1f;
 
 
 
@@ -16,17 +18,47 @@ public class ItemDropSpawner : Spawner
         ItemDropSpawner.instance = this;
     }
 
-    public virtual void Drop(List<DropRate> dropList, Vector3 pos, Quaternion rota)
+
+    public virtual List<ItemDropRate> DropItems(List<ItemDropRate> items)
     {
-        if (dropList.Count < 1) return;
-        ItemCode itemDropName = dropList[0].ItemSO.itemCode;
-        Transform itemDrop = this.Spawn(itemDropName.ToString(), pos, rota);
-        if (itemDrop == null) return;
-        itemDrop.gameObject.SetActive(true);
+        List<ItemDropRate> droppedItems = new List<ItemDropRate>();
+
+        float rate, itemRate;
+        foreach (ItemDropRate item in items)
+        {
+             rate = Random.Range(0, 1f);
+            itemRate = item.dropRate * this.dropRate;
+
+            if (rate <= itemRate) 
+            {
+                droppedItems.Add(item);
+            }
+
+        }
+
+        return droppedItems;
+    }
+
+    public virtual List<ItemDropRate> Drop(List<ItemDropRate> dropList, Vector3 pos, Quaternion rota)
+    {
+        List<ItemDropRate> droppedItems = new List<ItemDropRate>();
+        if (dropList.Count < 1) return droppedItems;
+
+        droppedItems = this.DropItems(dropList);
+        foreach (ItemDropRate item in droppedItems)
+        {
+            ItemCode itemDropName = item.ItemSO.itemCode;
+            Transform itemDrop = this.Spawn(itemDropName.ToString(), pos, rota);
+            if (itemDrop == null) continue;
+            itemDrop.gameObject.SetActive(true);
+        }
+
+
+        return droppedItems;
 
     }
 
-    public virtual Transform Drop(ItemInventory itemInventory, Vector3 pos, Quaternion rota)
+    public virtual Transform DropFromInventory(ItemInventory itemInventory, Vector3 pos, Quaternion rota)
     {
         ItemCode itemDropName = itemInventory.itemProfileSO.itemCode;
         Transform itemDrop = this.Spawn(itemDropName.ToString(), pos, rota);

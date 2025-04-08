@@ -18,7 +18,7 @@ public class DropManager : MainMonoBehaviour
         DropManager.instance = this;
     }
 
-    public virtual void Drop(List<DropRate> dropList)
+    public virtual void Drop(List<ItemDropRate> dropList)
     {
         Debug.Log(dropList[0].ItemSO.itemName);
     }

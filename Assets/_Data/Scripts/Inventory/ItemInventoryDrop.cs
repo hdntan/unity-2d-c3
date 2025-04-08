@@ -8,7 +8,7 @@ public class ItemInventoryDrop : InventoryAbstract
     protected override void Start()
     {
         base.Start();
-        Invoke(nameof(this.Test), 5);
+       // Invoke(nameof(this.Test), 5);
     }
 
     protected virtual void Test()
@@ -23,7 +23,7 @@ public class ItemInventoryDrop : InventoryAbstract
 
         ItemInventory itemInventory = this.inventory.Items[indexItem];
         
-        ItemDropSpawner.Instance.Drop(itemInventory, pos, rot);
+        ItemDropSpawner.Instance.DropFromInventory(itemInventory, pos, rot);
         this.inventory.Items.Remove(itemInventory);
 
     }
