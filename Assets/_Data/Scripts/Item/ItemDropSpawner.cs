@@ -5,9 +5,9 @@ using UnityEngine;
 public class ItemDropSpawner : Spawner
 {
     private static ItemDropSpawner instance;
-    public static ItemDropSpawner Instance { get => instance; }
+    public static ItemDropSpawner Instance  => instance; 
 
-    [SerializeField] protected float dropRate = 1f;
+    [SerializeField] protected float gameDropRate = 1f;
 
 
 
@@ -24,16 +24,32 @@ public class ItemDropSpawner : Spawner
         List<ItemDropRate> droppedItems = new List<ItemDropRate>();
 
         float rate, itemRate;
+        int itemDropMore;
         foreach (ItemDropRate item in items)
         {
-             rate = Random.Range(0, 1f);
-            itemRate = item.dropRate * this.dropRate;
+            rate = Random.Range(0, 1f);
+            itemRate = item.dropRate/100000f * this.gameDropRate;
+            itemDropMore = Mathf.FloorToInt(itemRate);
+            if (itemDropMore > 0) 
+            {
+                itemRate -= itemDropMore;
+                for (int i = 0; i < itemDropMore; i++) 
+                {
+                    droppedItems.Add(item);
+                }
+            }
+
+            Debug.Log(item.ItemSO.itemName + "===Rate===" + itemRate + "/" + rate);
+            Debug.Log("itemRate: " + itemRate);
+
+            Debug.Log("itemDropMore: " + itemDropMore);
+
 
             if (rate <= itemRate) 
             {
+                Debug.Log("==========Drop===========");
                 droppedItems.Add(item);
             }
-
         }
 
         return droppedItems;

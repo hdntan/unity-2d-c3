@@ -22,6 +22,7 @@ public class ItemDropTest : MainMonoBehaviour
         Quaternion dropRota = transform.rotation;
         List<ItemDropRate> itemDrops  = ItemDropSpawner.Instance.Drop(this.junkCtrl.ShootableObject.dropList, dropPos, dropRota);
         ItemDropCount itemDropCount;
+
         foreach(ItemDropRate itemDrop in itemDrops)
         {
             itemDropCount = this.itemDropCounts.Find(item => item.itemName == itemDrop.ItemSO.itemName);

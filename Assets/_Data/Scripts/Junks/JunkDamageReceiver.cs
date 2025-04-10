@@ -24,7 +24,7 @@ public class JunkDamageReceiver : DamageReceiver
 
         this.OnDeadFx();
         this.OnDeadDrop();  
-        this.ctrl.Despawn.DespawnObject();
+        this.ctrl.JunkDespawn.DespawnObject();
         //Drop Item
     }
 

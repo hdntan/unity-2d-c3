@@ -12,7 +12,7 @@ public abstract class Spawner : MainMonoBehaviour
 
 
     [SerializeField] protected int spawnCount = 0;
-    public int SpawnCount { get => spawnCount; }
+    public int SpawnCount => spawnCount; 
 
 
 
@@ -71,7 +71,7 @@ public abstract class Spawner : MainMonoBehaviour
         Transform newPrefab = this.GetObjFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, roatation);
         newPrefab.parent = this.holder;
-        this.spawnCount++;
+        this.spawnCount ++;
         return newPrefab;
     }
 

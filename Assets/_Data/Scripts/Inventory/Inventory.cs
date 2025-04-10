@@ -9,15 +9,15 @@ public class Inventory : MainMonoBehaviour
     public List<ItemInventory> Items => items;
 
 
-    protected override void Start()
-    {
-        base.Start();
-        this.AddItem(ItemCode.CopperSword,1);
-        this.AddItem(ItemCode.IronOre, 12);
-        this.AddItem(ItemCode.GoldOre, 5);
+    //protected override void Start()
+    //{
+    //    base.Start();
+    //    this.AddItem(ItemCode.CopperSword,1);
+    //    this.AddItem(ItemCode.IronOre, 12);
+    //    this.AddItem(ItemCode.GoldOre, 5);
 
 
-    }
+    //}
 
     //public virtual bool AddItem(ItemCode itemCode, int addCount)
     //{
