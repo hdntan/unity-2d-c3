@@ -1,14 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
-    public static InputManager Instance { get => instance; }
+    public static InputManager Instance => instance; 
 
     [SerializeField] protected float onFiring;
-    public float OnFiring { get => onFiring;  }
+    public float OnFiring => onFiring;
+
+    [SerializeField]  protected Vector4 direction;
+
+    public Vector4 Direction => direction;
 
     
       
@@ -23,6 +27,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         this.GetMouseDown();
+        this.GetDirectionInputByKeyDown();
     }
 
     void FixedUpdate()
@@ -38,5 +43,18 @@ public class InputManager : MonoBehaviour
     protected virtual void GetMousePos()
     {
             this.mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    protected virtual void GetDirectionInputByKeyDown()
+    {
+        this.direction.x = (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) ? 1 : 0;
+        this.direction.y = (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) ? 1 : 0;
+        this.direction.z = (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) ? 1 : 0;
+        this.direction.w = (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) ? 1 : 0;
+
+        if (this.direction.x == 1) Debug.Log($"Left");
+        if (this.direction.y == 1) Debug.Log($"Righta");
+        if (this.direction.z == 1) Debug.Log($"Up");
+        if (this.direction.w == 1) Debug.Log($"Down");
     }
 }

@@ -5,12 +5,11 @@ using UnityEngine;
 public abstract class ObjectAppearing : MainMonoBehaviour
 {
     [Header("Object Appearing")]
-    [SerializeField] protected bool isAppearing = false;
+
     [SerializeField] protected bool appeared = false;
 
     [SerializeField] protected List<IObjectAppearObverser> observers = new List<IObjectAppearObverser>();
 
-    public bool IsAppearing => isAppearing;
     public bool Appeared => appeared;
 
     protected override void Start()
@@ -19,6 +18,15 @@ public abstract class ObjectAppearing : MainMonoBehaviour
         this.OnAppearStart();
         
     }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        this.appeared = false;
+        this.OnAppearStart();
+    } 
+
+
 
     protected virtual void FixedUpdate()
     {
@@ -31,7 +39,6 @@ public abstract class ObjectAppearing : MainMonoBehaviour
     public virtual void Appear()
     {
         this.appeared = true;
-        this.isAppearing = false;
         this.OnAppearedFinish();    
     }
 

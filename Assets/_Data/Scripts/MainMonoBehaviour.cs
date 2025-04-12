@@ -34,4 +34,9 @@ public class MainMonoBehaviour : MonoBehaviour
     {
         // override
     }
+
+    protected virtual void OnDisable()
+    {
+        // override
+    }
 }
