@@ -18,6 +18,11 @@ public abstract class BaseAbility : MainMonoBehaviour
         this.Timming();
     }
 
+    protected virtual void Update()
+    {
+
+    }
+
 
     protected override void LoadComponents()
     {

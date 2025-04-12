@@ -2135,6 +2135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 547077895}
+  - component: {fileID: 547077896}
   m_Layer: 0
   m_Name: AbilityWarp
   m_TagString: Untagged
@@ -2157,6 +2158,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878038540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &547077896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547077894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4081eb7c0795424a8af5eaf5d4d26f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  delay: 2
+  isReady: 0
+  abilities: {fileID: 878038541}
+  isWarping: 0
+  warpDirection: {x: 0, y: 0, z: 0, w: 0}
+  warpSpeed: 1
 --- !u!1 &558467521
 GameObject:
   m_ObjectHideFlags: 0

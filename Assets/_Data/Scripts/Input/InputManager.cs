@@ -10,9 +10,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] protected float onFiring;
     public float OnFiring => onFiring;
 
-    [SerializeField]  protected Vector4 direction;
+    protected Vector4 direction;
 
-    public Vector4 Direction => direction;
+    public Vector4 Direction => direction; 
 
     
       
@@ -52,9 +52,9 @@ public class InputManager : MonoBehaviour
         this.direction.z = (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) ? 1 : 0;
         this.direction.w = (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) ? 1 : 0;
 
-        if (this.direction.x == 1) Debug.Log($"Left");
-        if (this.direction.y == 1) Debug.Log($"Righta");
-        if (this.direction.z == 1) Debug.Log($"Up");
-        if (this.direction.w == 1) Debug.Log($"Down");
+        //if (this.direction.x == 1) Debug.Log($"Left");
+        //if (this.direction.y == 1) Debug.Log($"Righta");
+        //if (this.direction.z == 1) Debug.Log($"Up");
+        //if (this.direction.w == 1) Debug.Log($"Down");
     }
 }
