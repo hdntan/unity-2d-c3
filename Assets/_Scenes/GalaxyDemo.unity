@@ -2171,12 +2171,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  delay: 2
+  delay: 0.3
   isReady: 0
   abilities: {fileID: 878038541}
   isWarping: 0
   warpDirection: {x: 0, y: 0, z: 0, w: 0}
-  warpSpeed: 1
+  warpSpeed: 0.3
+  warpDistance: 2
 --- !u!1 &558467521
 GameObject:
   m_ObjectHideFlags: 0
