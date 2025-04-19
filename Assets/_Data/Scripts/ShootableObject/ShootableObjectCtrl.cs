@@ -28,6 +28,13 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
 
     [SerializeField] protected Spawner spawner;
     public Spawner Spawner => spawner;
+
+    [SerializeField] protected DamageReceiver damageReceiver;
+
+    public DamageReceiver DamageReceiver => damageReceiver;
+
+
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -38,6 +45,15 @@ public abstract class ShootableObjectCtrl : MainMonoBehaviour
         this.LoadObjectMovement();
         this.LoadObjectLookAtTarget();
         this.LoadSpawner();
+        this.LoadDamageReceiver();
+    }
+
+
+    protected virtual void LoadDamageReceiver()
+    {
+        if (this.damageReceiver != null) return;
+        this.damageReceiver = transform.GetComponentInChildren<DamageReceiver>();
+        Debug.LogWarning(transform.name + " :LoadDamageReceiver", gameObject);
     }
 
 

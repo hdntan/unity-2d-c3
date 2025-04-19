@@ -10,6 +10,9 @@ public abstract class DamageReceiver : MainMonoBehaviour
     [SerializeField] protected int hpMax = 2;
     [SerializeField] protected bool isDead = false;
 
+    public int HP => hp;
+    public int HPMax => hpMax;
+
 
     protected override void OnEnable()
     {
